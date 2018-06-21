@@ -26,13 +26,13 @@ public class NewTest {
     
     @Test(expectedExceptions = UnhandledAlertException.class ,dependsOnMethods = {"attempt_Login_With_No_Password_Should_Annotate_Black_Password_Field"})
     public void attempt_Login_With_Correct_Credentials_Should_Not_Render_PasswordField() {
-    	loginForm.loginWithCorrectCredentials("raman", "qainfotech");
+    	loginForm.loginWithCorrectCredentials("valid_username", "valid_password");
     	Assert.assertFalse(loginForm.loginWithCorrectCredentialsDoNotRenderLoginPage());
     }
     
     @Test(expectedExceptions = UnhandledAlertException.class ,dependsOnMethods = {"attempt_Login_With_Correct_Credentials_Should_Not_Render_PasswordField"})
     public void attempt_Login_With_Correct_Credentials_Should_Open_TimeSheet() {
-    	loginForm.loginWithCorrectCredentials("raman", "qainfotech");
+    	loginForm.loginWithCorrectCredentials("valid_username", "valid_password");
     	Assert.assertTrue(driver.getCurrentUrl().contains("employee"));
     }
     
